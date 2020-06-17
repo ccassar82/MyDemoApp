@@ -1,0 +1,59 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome to Clint's Demo App</h1>
+        <p>:: User Management :: </p>
+        <p>
+            <div class="evenSpace">
+                <span>
+                    First Name
+                </span>
+                <span>
+                    Last Name
+                </span>
+                <span>
+                    Birth Date
+                </span>
+                <span>
+                    Email Address
+                </span>
+                <span>
+                    &nbsp;
+                </span>
+                <span>
+                    &nbsp;
+                </span>
+            </div>
+
+        </p>
+        <p>
+            @foreach (var user in Model.Users)
+            {
+            <div class="evenSpace">
+                <span>
+                    @user.Name
+                </span>
+                <span>
+                    @user.Surname
+                </span>
+                <span>
+                    @user.BirthDate.ToString("dd/MM/yyyy")
+                </span>
+                <span>
+                    @user.Email
+                </span>
+                <span>
+                    <a asp-page="/Edit" asp-route-Id="@user.Id" class="nav-link"><img src="~/edit.png" style="width:32px; height:32px" /></a>
+                </span>
+                <span>
+                    <a asp-page="/Delete" asp-route-Id="@user.Id" class="nav-link"><img onclick="return confirm('Are you sure you want to delete this user?');" src="~/delete.png" style="width:32px; height:32px" /></a>
+                </span>
+            </div>
+            }
+        </p>
+    </div>

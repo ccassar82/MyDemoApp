@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  usersapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "62610:80"
+  rabbitmq:
+    ports:
+    - "4369:4369"
+    - "5671:5671"
+    - "5672:5672"
+    - "25672:25672"
+    - "15671:15671"
+    - "15672:15672"
+
+
+  listenerservice:
+

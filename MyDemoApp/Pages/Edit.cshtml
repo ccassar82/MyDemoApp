@@ -1,0 +1,66 @@
+﻿@page
+@model FrontEnd.Pages.EditModel
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+  
+
+<div class="text-center">
+    <h1 class="display-4">@Html.DisplayFor(modelItem =>  Model.Title)</h1>
+    <form method="post">
+        <div asp-validation-summary="All"></div>
+        <div>
+            <div class="evenSpace">
+                <span>&nbsp;</span>
+                <span>
+                    <input asp-for="User.Id" type="hidden" />
+                </span>
+                <span>&nbsp;</span>
+            </div>
+        </div>
+        <div>
+            <div class="evenSpace">
+                <span><label asp-for="User.Name"></label></span>
+                <span>
+                    <input asp-for="User.Name" />
+                </span>
+                <span asp-validation-for="User.Name"></span>
+            </div>
+        </div>
+        <div>
+            <div class="evenSpace">
+                <span>
+                    <label asp-for="User.Surname"></label>
+                </span>
+                <span>
+                    <input asp-for="User.Surname" />
+                </span>
+                <span asp-validation-for="User.Surname"></span>
+            </div>
+        </div>
+        <div>
+            <div class="evenSpace">
+                <span>
+                    <label asp-for="User.BirthDate"></label>
+                </span>
+                <span>
+                    <input asp-for="User.BirthDate" />
+                </span>
+                <span asp-validation-for="User.BirthDate"></span>
+            </div>
+        </div>
+        <div>
+            <div class="evenSpace">
+                <span><label asp-for="User.Email"></label></span>
+                <span> <input asp-for="User.Email" /></span>
+                <span asp-validation-for="User.Email"></span>
+            </div>
+        </div>
+        <div>
+            <button type="submit">Save</button>
+        </div>
+    </form>
+
+</div>
+

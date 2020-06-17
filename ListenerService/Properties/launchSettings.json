@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ListenerService": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

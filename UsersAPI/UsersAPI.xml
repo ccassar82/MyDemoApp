@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UsersAPI</name>
+    </assembly>
+    <members>
+        <member name="T:UsersAPI.Controllers.UserController">
+            <Summary>
+             This is the API controller that controls main user functionality
+            </Summary>
+        </member>
+        <member name="M:UsersAPI.Controllers.UserController.PutUserDTO(System.Guid,UsersAPI.UserDTO)">
+            <summary>
+            This method allows a user to be updated.
+            </summary>
+            <param name="id"></param>
+            <param name="userDTO"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

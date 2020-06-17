@@ -1,0 +1,48 @@
+version: '3.4'
+
+services:
+  usersapi:
+    image: ${DOCKER_REGISTRY-}usersapi
+    build:
+      context: .
+      dockerfile: UsersAPI/Dockerfile
+    ports:
+      - "62610:80"
+    depends_on:
+     - rabbitmq
+    links:
+     - rabbitmq
+    networks:
+     - mynetwork
+
+  rabbitmq: # login guest:guest
+    image: rabbitmq:3-management
+    hostname: "rabbitmq"
+    container_name: "rabbitmq"
+    labels:
+      NAME: "rabbitmq"
+    ports:
+    - "4369:4369"
+    - "5671:5671"
+    - "5672:5672"
+    - "25672:25672"
+    - "15671:15671"
+    - "15672:15672"
+    networks:
+     - mynetwork
+
+  listenerservice:
+    image: ${DOCKER_REGISTRY-}listenerservice
+    build:
+      context: .
+      dockerfile: ListenerService/Dockerfile
+    depends_on:
+     - rabbitmq
+    restart: on-failure
+    links:
+     - rabbitmq
+    networks:
+     - mynetwork
+
+networks:
+  mynetwork:
